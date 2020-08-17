@@ -1,0 +1,31 @@
+@font-face {
+  font-family: blockpro;
+  src: url("fonts/blockpropluscon-webfont.ttf");
+}
+
+@font-face {
+  font-family: barlow;
+  src: url("fonts/barlow-v4-latin-regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: barlow;
+  src: url("fonts/barlow-v4-latin-700.ttf");
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: blockpro, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+
+body {
+  text-align: center;
+  font-family: barlow, sans-serif;
+}
