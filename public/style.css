@@ -1,0 +1,154 @@
+@font-face {
+  font-family: blockpro;
+  src: url("fonts/blockpropluscon-webfont.ttf");
+}
+
+@font-face {
+  font-family: barlow;
+  src: url("fonts/barlow-v4-latin-regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: barlow;
+  src: url("fonts/barlow-v4-latin-700.ttf");
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: blockpro, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+
+body {
+  text-align: center;
+  font-family: barlow, sans-serif;
+  background-color: #f4f1ef;
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  height: 8rem;
+  overflow: auto;
+  z-index: 1;
+  padding: 2rem auto 1rem auto;
+}
+
+.leftNavWrapper {
+  width: 33%;
+}
+
+.leftNavWrapper a {
+  font-family: blockpro, sans-serif;
+  font-size: 15pt;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  margin: auto auto auto 1rem;
+}
+
+.rightNavWrapper {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: flex-end;
+}
+
+.signup {
+  background-color: #be5a07;
+  font-size: 16pt;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: blockpro, sans-serif;
+}
+
+.cart {
+  display: inherit;
+  background: transparent;
+  color: #be5a07;
+  font-size: 16pt;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #be5a07;
+  border-radius: 2rem;
+  padding: 0.5rem 1.125rem;
+  margin-left: 30px;
+  margin-right: 30px;
+  align-items: center;
+  cursor: pointer;
+  font-family: blockpro, sans-serif;
+}
+
+main {
+  position: relative;
+  top: 200px;
+  margin: 0 20rem;
+}
+
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.product {
+  display: grid;
+  place-items: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 3%;
+}
+
+.product img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  margin: 1rem auto;
+}
+
+h2 {
+  font-family: blockpro, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+
+.currency {
+  text-transform: uppercase;
+}
+
+.add-to-cart {
+  background-color: rgb(201, 3, 37);
+  font-family: blockpro, sans-serif;
+  text-transform: uppercase;
+  color: white;
+  border: 0;
+  border-radius: 10rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
