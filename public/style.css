@@ -65,10 +65,14 @@ nav {
   display: flex;
   align-items: center;
   padding: 5px;
-  justify-content: flex-end;
+  justify-content: space-evenly;
 }
 
 .signup {
+  position: fixed;
+  display: flex;
+  top: 2.8rem;
+  right: 15rem;
   background-color: #be5a07;
   font-size: 16pt;
   border: none;
@@ -82,21 +86,77 @@ nav {
   font-family: blockpro, sans-serif;
 }
 
-.cart {
-  display: inherit;
+#cart {
+  position: fixed;
+  display: flex;
+  right: 2rem;
+  top: 2.9rem;
   background: transparent;
   color: #be5a07;
   font-size: 16pt;
   border-width: 1px;
   border-style: solid;
   border-color: #be5a07;
-  border-radius: 2rem;
-  padding: 0.5rem 1.125rem;
-  margin-left: 30px;
-  margin-right: 30px;
+  border-radius: 1rem;
   align-items: center;
   cursor: pointer;
   font-family: blockpro, sans-serif;
+}
+
+#cart dialog {
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: 17rem;
+  width: 400px;
+  background-color: #ffffff;
+  border: none;
+  font-family: barlow;
+  font-style: bold;
+  border-radius: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #be5a07;
+}
+
+#cart-button {
+  background-color: transparent;
+  border: none;
+  font-family: blockpro, sans-serif;
+  font-size: 16pt;
+  padding: 0.4rem 1.5rem;
+  margin-left: 30px;
+  margin-right: 30px;
+  color: #be5a07;
+}
+
+.add {
+  background-color: transparent;
+  color: #be5a07;
+  font-size: 20pt;
+  border: none;
+}
+
+.subtract {
+  background-color: transparent;
+  color: #be5a07;
+  font-size: 20pt;
+  border: none;
+}
+
+#line-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+#line-items li {
+  display: flex;
+  justify-content: space-between;
+}
+
+#line-items span {
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 main {

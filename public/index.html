@@ -20,13 +20,20 @@
           <img src="images/logo.svg" alt="logo" />
         </div>
         <div class="rightNavWrapper">
-          <button class="signup">sign up</button>
-          <button class="cart">
-            <span>$0.00</span>
-            <span>
-              <img src="public/images/bag-icon.svg" alt="cart" />
-            </span>
-          </button>
+          <span>
+            <button class="signup">sign up</button>
+          </span>
+          <span>
+            <aside id="cart">
+              <button id="cart-button">
+                <img src="public/images/logo.svg" alt="Cart" />
+              </button>
+
+              <dialog id="dialog">
+                <ul id="line-items"></ul>
+              </dialog>
+            </aside>
+          </span>
         </div>
       </nav>
     </header>
