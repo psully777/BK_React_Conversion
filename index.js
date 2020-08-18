@@ -34,7 +34,6 @@ app.get('/products', async (_request, response) => {
   }));
   response.json(cleanedUpProducts);
 
-  console.log(cleanedUpProducts)
 });
 
 

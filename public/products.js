@@ -9,7 +9,6 @@ let products = [];
 function addToCart(event){
   const theButtonThatGotClicked = event.currentTarget
   const priceId = theButtonThatGotClicked.closest('[data-priceid]').dataset.priceid
-  console.log(priceId)
   if (cart[priceId]) {
     cart[priceId] += 1 
   }else {
