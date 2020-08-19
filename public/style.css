@@ -72,7 +72,7 @@ nav {
   position: fixed;
   display: flex;
   top: 2.8rem;
-  right: 15rem;
+  right: 11rem;
   background-color: #be5a07;
   font-size: 16pt;
   border: none;
@@ -100,7 +100,11 @@ nav {
   border-radius: 1rem;
   align-items: center;
   cursor: pointer;
-  font-family: blockpro, sans-serif;
+}
+
+#cart:hover {
+  background-color: #be5a07;
+  color: white;
 }
 
 #cart dialog {
@@ -108,25 +112,37 @@ nav {
   margin-right: 0;
   margin-top: 17rem;
   width: 400px;
-  background-color: #ffffff;
+  background-color: #f4f5f5;
   border: none;
   font-family: barlow;
+  font-size: 14pt;
   font-style: bold;
   border-radius: 1rem;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #be5a07;
 }
 
 #cart-button {
-  background-color: #be5a07;
+  background-color: transparent;
   border: none;
   font-family: blockpro, sans-serif;
   font-size: 16pt;
-  padding: 0.4rem 1.5rem;
-  margin-left: 30px;
-  margin-right: 30px;
+  padding: 0.4rem 2rem;
   color: #be5a07;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#cart-button:hover {
+  color: white;
+}
+
+#cart-button img {
+  width: 15px;
+  margin: 5px auto auto 5px;
+}
+
+#cart-button:hover img {
+  filter: brightness(100);
 }
 
 .add {
@@ -177,6 +193,13 @@ main {
   background-color: white;
   padding: 1rem;
   border-radius: 3%;
+  border: solid 1px #dcdcdc;
+  transition: transform 0.3s;
+}
+
+.product:hover {
+  border: none;
+  transform: scale(1.02);
 }
 
 .product img {

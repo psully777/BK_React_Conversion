@@ -67,7 +67,7 @@ renderProduct = product => {
       <button class = "add-to-cart">
         Add <span class = "currency">$${product.currency}</span> 
         ${(product.price_cents / 100).toFixed(2)}</button>
-      <p>${product.nutrition} cal</p>
+      <p>${product.nutrition} Cal</p>
     </div>`;
   const fragment = document.createRange().createContextualFragment(html);
   const button = fragment.querySelector('button');
