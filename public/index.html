@@ -17,7 +17,7 @@
           <a href="#">More</a>
         </div>
         <div class="logo">
-          <img src="images/logo.svg" alt="logo" />
+          <img id="logo" alt="logo" class="hidden" />
         </div>
         <div class="rightNavWrapper">
           <span>
@@ -26,7 +26,7 @@
           <span>
             <aside id="cart">
               <button id="cart-button">
-                $0.00<img src="images/bag-icon.svg" alt="Cart" />
+                $0.00<img id="bag-icon" alt="bag-icon" class="hidden" />
               </button>
 
               <dialog id="dialog">
@@ -39,6 +39,9 @@
     </header>
     <main>
       <section id="categories"></section>
+
+      <button id="back-to-main-menu">Back To Main Menu</button>
+
       <section id="products"></section>
 
       <script src="products.js"></script>
