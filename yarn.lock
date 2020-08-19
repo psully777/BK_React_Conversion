@@ -354,10 +354,10 @@ setprototypeof@1.1.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
-stripe@^8.87.0:
-  version "8.87.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.87.0.tgz#2461f9bdadec3c86c90e578df64d951e28e8a25c"
-  integrity sha512-NDMbWLBvOtOiYHgR5d7MVGIYBPeF2pdMGEkEEnDNngdLONroSCneaeuGCMnPMiFHC5LYi1SrLvkV0NYwlrOD1A==
+stripe@^8.88.0:
+  version "8.88.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.88.0.tgz#ba7e9eec21bbf5459491366081d04a811b55f0de"
+  integrity sha512-aeixfX6Gem5UiRdoH9wphQ344abxgAQrLg2sAY/0IddZ5mprZKS568Pb3WX0qy2E5OJGute+jEAn2Za7DKLQtw==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"

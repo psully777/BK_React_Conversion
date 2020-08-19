@@ -4,21 +4,35 @@ let sanityData = {}
 
 const sanityUrl = 'https://6buksnvq.api.sanity.io/v1/graphql/production/default'
 const sanityQuery =`
-  query {
-   allCategory{
-      name 
-     primaryImage{
-       asset{
-         url
-       }
-     }
-     carouselImage{
-       asset{
-         url
-       }
+query {
+  allSiteSettings{
+    menuHeroText
+    logo{
+      asset{
+        url
+      }
+    }
+    bagIcon{
+      asset{
+        url
+      }
+    }
+  }
+ allCategory{
+    name 
+   primaryImage{
+     asset{
+       url
      }
    }
-  }`
+   carouselImage{
+     asset{
+       url
+     }
+   }
+ }
+}
+`
 
 const productsSection = document.querySelector('#products')
 const categoriesSection = document.querySelector('#categories');
@@ -46,10 +60,10 @@ async function fetchSanityData(){
 
 async function initialPageLoad(){
   await fetchSanityData()
-//   // bagIcon.src = sanityData.allSiteSetting[0].bagIcon.asset.url
-//   bagIcon.classList.remove('hidden')
-//   logo.src = sanityData.allSiteSetting[0].logo.asset.url
-//   logo.classList.remove('hidden')
+  bagIcon.src = sanityData.allSiteSettings[0].bagIcon.asset.url
+  bagIcon.classList.remove('hidden')
+  logo.src = sanityData.allSiteSettings[0].logo.asset.url
+  logo.classList.remove('hidden')
   const fragments = sanityData.allCategory.map(renderCategory)
   categoriesSection.innerHTML = ''
   categoriesSection.prepend(...fragments)
@@ -61,6 +75,8 @@ const renderCategory = category => {
       <img 
         src="${category.primaryImage.asset.url}" 
         alt="${category.name}"
+        data-primaryimage="${category.primaryImage.asset.url}" 
+        data-carouselimage="${category.carouselImage.asset.url}" 
       />
       <h2>${category.name}</h2>
     </button>`
@@ -75,7 +91,11 @@ const selectCategory = event => {
   categoriesSection.classList.add('carousel')
   const theButtonThatGotClicked = event.currentTarget
   const allCategories = document.querySelectorAll('.category')
-  allCategories.forEach(category => category.classList.remove('selected'))
+  allCategories.forEach(category => {
+    category.classList.remove('selected')
+    const img = category.querySelector('img')
+    img.src = img.dataset.carouselimage
+  })
   theButtonThatGotClicked.classList.add('selected')
   const selectedCategory = theButtonThatGotClicked.dataset.category
   const filteredProducts = products.filter(
@@ -89,12 +109,17 @@ const selectCategory = event => {
 const unselectCategory = () => {
   categoriesSection.classList.remove('carousel')
   const allCategories = document.querySelectorAll('.category')
-  allCategories.forEach(category => category.classList.remove('selected'))
+  allCategories.forEach(category => {
+    category.classList.remove('selected')
+    const img = category.querySelector('img')
+    img.src = img.dataset.primaryimage
+  })
   productsSection.innerHTML = '';
 }
 
 
 function addToCart(event){
+  console.log('clicked')
   const theButtonThatGotClicked = event.currentTarget
   const priceId = theButtonThatGotClicked.closest('[data-priceid]').dataset.priceid
   if (cart[priceId]) {
@@ -102,6 +127,7 @@ function addToCart(event){
   }else {
     cart[priceId] = 1
   }
+  console.log(cart)
   renderCart()
 }
   
@@ -158,7 +184,7 @@ renderProduct = product => {
     </div>`;
   const fragment = document.createRange().createContextualFragment(html);
   const button = fragment.querySelector('button');
-  button.addEventListener('click', selectCategory);
+  button.addEventListener('click', addToCart);
   return fragment;
 }
 
