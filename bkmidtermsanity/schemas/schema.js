@@ -11,11 +11,33 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    {      
+    title: 'Overall Site Settings',
+    name: 'siteSettings',
+    type: 'document',
+    fields: [
+      {
+      title: 'Logo',
+      name: 'logo',
+      type: 'image',
+      },
+      {
+        title: 'Bag Icon',
+        name: 'bagIcon',
+        type: 'image',
+        },
+        {
+        title: 'Menu Hero Text',
+        name: 'menuHeroText',
+        type: 'string',
+        },
+      ]
+    },
     {
       title: 'Category',
-      name: 'category',
-      type: 'document',
-      fields: [
+    name: 'category',
+    type: 'document',
+    fields: [
         {
           title: 'Name',
           name: 'name',
