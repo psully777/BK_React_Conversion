@@ -1,4 +1,6 @@
 require('dotenv').config();
+const PORT = process.env.PORT || 3000
+const ROOT_URL = process.env.ROOT_URL || `http://localhost:${PORT}`
 
 const express = require('express');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -49,11 +51,11 @@ app.post('/checkout', async (request, response) => {
     payment_method_types: ['card'],
     line_items: lineItems,
     mode: 'payment',
-    success_url: 'http://localhost:3000',
-    cancel_url: 'http://localhost:3000',
+    success_url: ROOT_URL,
+    cancel_url: ROOT_URL,
   });
   response.json({session_id: session.id})
 })
 
 
-app.listen(3000, () => console.log(`Server is up and running 🚀`));
+app.listen(PORT, () => console.log(`Server is up and running  on port ${PORT}🚀`));
