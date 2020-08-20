@@ -111,10 +111,10 @@ header {
 }
 
 #cart dialog {
-  height: 200px;
+  height: 300px;
   margin-left: auto;
   margin-right: 0;
-  margin-top: 17rem;
+  margin-top: 22rem;
   width: 400px;
   background-color: #f4f5f5;
   border: none;
@@ -154,7 +154,7 @@ img.hidden {
   opacity: 0;
 }
 
-#back-to-main {
+#back-to-main-menu {
   display: none;
 }
 
@@ -176,6 +176,7 @@ img.hidden {
   margin: 1.2rem 0;
   display: flex;
   position: absolute;
+  top: 0rem;
   left: 0;
   right: 0;
   background-color: white;
@@ -234,10 +235,10 @@ main {
 }
 
 #categories {
-  margin: 200px 100px 0 100px;
+  margin: 200px 150px 0 150px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  grid-gap: 0.5rem;
+  grid-gap: 0.3rem;
   align-items: center;
 }
 
@@ -319,4 +320,36 @@ h2 {
 .logo {
   width: 100px;
   height: 100px;
+}
+
+#checkout-button {
+  background-color: #be5a07;
+  font-size: 16pt;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  font-family: blockpro, sans-serif;
+  height: 2rem;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+#menu-hero-text {
+  font-family: blockpro, sans-serif;
+  width: 100%;
+  background-color: #323231;
+  color: white;
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  right: 0;
+  font-size: 4rem;
+  z-index: -1;
+  height: 12rem;
+  justify-content: center;
+  padding: 2rem 0 0 0;
+}
+
+#menu-hero-text.hidden {
+  display: none;
 }

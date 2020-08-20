@@ -42,6 +42,7 @@ const cartButton = document.querySelector('#cart-button')
 const lineItemsList = document.querySelector('#line-items')
 const logo = document.querySelector('#logo')
 const bagIcon = document.querySelector('#bag-icon')
+const menuHeroText = document.querySelector('#menu-hero-text')
 const backtoMainMenu = document.querySelector('#back-to-main-menu')
 const checkoutButton = document.querySelector('#checkout-button')
 
@@ -65,6 +66,9 @@ async function initialPageLoad(){
   bagIcon.classList.remove('hidden')
   logo.src = sanityData.allSiteSettings[0].logo.asset.url
   logo.classList.remove('hidden')
+  menuHeroText.textContent = sanityData.allSiteSettings[0].menuHeroText
+  console.log(sanityData.allSiteSettings[0].menuHeroText)
+  menuHeroText.classList.remove('hidden')
   const fragments = sanityData.allCategory.map(renderCategory)
   categoriesSection.innerHTML = ''
   categoriesSection.prepend(...fragments)
@@ -89,6 +93,7 @@ const renderCategory = category => {
 
 
 const selectCategory = event => {
+  menuHeroText.classList.add('hidden')
   categoriesSection.classList.add('carousel')
   const theButtonThatGotClicked = event.currentTarget
   const allCategories = document.querySelectorAll('.category')
@@ -108,6 +113,7 @@ const selectCategory = event => {
 }
 
 const unselectCategory = () => {
+  menuHeroText.classList.remove('hidden')
   categoriesSection.classList.remove('carousel')
   const allCategories = document.querySelectorAll('.category')
   allCategories.forEach(category => {
