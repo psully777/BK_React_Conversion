@@ -6,6 +6,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
 app.use(express.static('public'));
+app.use(express.json())
 
 
 app.get('/products', async (_request, response) => {
@@ -35,6 +36,24 @@ app.get('/products', async (_request, response) => {
   response.json(cleanedUpProducts);
 
 });
+
+app.post('/checkout', async (request, response) => {
+  const { cart } = request.body  
+  const lineItems = Object.keys(cart).map(priceId => {
+    return {
+      price: priceId,
+      quantity: cart[priceId]
+    }
+  })
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: lineItems,
+    mode: 'payment',
+    success_url: 'http://localhost:3000',
+    cancel_url: 'http://localhost:3000',
+  });
+  response.json({session_id: session.id})
+})
 
 
 app.listen(3000, () => console.log(`Server is up and running 🚀`));

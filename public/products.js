@@ -2,6 +2,7 @@ const cart = {}
 let products = [];
 let sanityData = {}
 
+const stripe = Stripe('pk_test_51HHEWgIzz2EUpZs19cpwY85PgSytrcZhvp2RpW5mP4ZTekDWWo4qRR7DHmVHNXaWeHGGvUICLR9Dy41NSKr6wg9V00x3Kvz9Vt');
 const sanityUrl = 'https://6buksnvq.api.sanity.io/v1/graphql/production/default'
 const sanityQuery =`
 query {
@@ -42,8 +43,8 @@ const lineItemsList = document.querySelector('#line-items')
 const logo = document.querySelector('#logo')
 const bagIcon = document.querySelector('#bag-icon')
 const backtoMainMenu = document.querySelector('#back-to-main-menu')
+const checkoutButton = document.querySelector('#checkout-button')
 
-//so data comes back from API as an object//
 async function fetchSanityData(){
   const response = await fetch(sanityUrl, {
     method: "POST",
@@ -142,6 +143,21 @@ function subtractFromCart(event){
   renderCart()
 }
 
+const checkout = async () => {
+  const response = await fetch('/checkout', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({ cart })
+  })
+  const data = await response.json()
+  stripe.redirectToCheckout({
+    sessionId: data.session_id
+  })
+}
+
 const renderLineItem = priceId => {
   const product = products.find(prod => prod.price_id === priceId)
   const html = `
@@ -166,7 +182,15 @@ const renderCart = () => {
   const lineItems = priceIds.map(renderLineItem)
   lineItemsList.innerHTML = ''
   lineItemsList.prepend(...lineItems)
-}
+  if (priceIds.length > 0){
+    checkoutButton.disabled = false
+  } else {
+    lineItemsList.innerHTML = `<li>Your Cart is Empty!</li>`
+    checkoutButton.disabled = true
+  }
+  }
+
+
 
 const toggleCart = () => {
   cartDialog.open = !cartDialog.open
@@ -195,6 +219,7 @@ async function fetchProducts(){
 
 cartButton.addEventListener('click', toggleCart)
 backtoMainMenu.addEventListener('click', unselectCategory)
+checkoutButton.addEventListener('click', checkout)
 
 initialPageLoad()
 fetchProducts();
