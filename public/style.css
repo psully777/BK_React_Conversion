@@ -105,7 +105,7 @@ header {
   cursor: pointer;
 }
 
-#cart:hover {
+#cart-button:hover {
   background-color: #be5a07;
   color: white;
 }
@@ -139,6 +139,7 @@ header {
 
 #cart-button:hover {
   color: white;
+  border-radius: 1rem;
 }
 
 #cart-button img {
@@ -237,8 +238,8 @@ main {
 #categories {
   margin: 200px 150px 0 150px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  grid-gap: 0.3rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-gap: 1rem;
   align-items: center;
 }
 
@@ -246,7 +247,7 @@ main {
   gap: 2rem;
   background-color: white;
   border: none;
-  width: 350px;
+  width: 100%;
   border-radius: 1rem;
   font-size: 12pt;
   padding: 0;

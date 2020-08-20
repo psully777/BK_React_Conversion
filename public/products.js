@@ -133,7 +133,6 @@ function addToCart(event) {
   } else {
     cart[priceId] = 1;
   }
-  console.log(cart);
   renderCart();
 }
 

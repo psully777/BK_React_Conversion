@@ -35,7 +35,7 @@ app.post('/clicks', async (request, response) => {
   } = request.body;
 
   await db.query(
-    `INSERT INTO clicks2 (whatGotClicked, pageX, pageY, dataId, timestamp, userId) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
+    `INSERT INTO bk_clicks (whatGotClicked, pageX, pageY, dataId, timestamp, userId) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
     [whatGotClicked.slice(0, 128), pageX, pageY, dataId, timestamp, userId]
   );
 
