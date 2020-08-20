@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BK Starter</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://js.stripe.com/v3/"></script>
   </head>
   <body>
     <header>
@@ -28,7 +29,10 @@
             </button>
 
             <dialog id="dialog">
-              <ul id="line-items"></ul>
+              <ul id="line-items">
+                <li>Your Cart is Empty!</li>
+              </ul>
+              <button id="checkout-button" disabled>Checkout</button>
             </dialog>
           </aside>
         </div>
