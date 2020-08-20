@@ -176,7 +176,7 @@ img.hidden {
   margin: 1.2rem 0;
   display: flex;
   position: absolute;
-  top: 0rem;
+  top: 0;
   left: 0;
   right: 0;
   background-color: white;

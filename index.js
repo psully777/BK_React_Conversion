@@ -16,7 +16,7 @@ app.use(express.static('public'));
 app.use(express.json())
 
 db.query(`
- CREATE TABLE IF NOT EXISTS clicks2(
+ CREATE TABLE IF NOT EXISTS bk_clicks(
  id SERIAL PRIMARY KEY,
  whatGotClicked VARCHAR(128) NOT NULL, 
  pageX INT NOT NULL, 
@@ -28,7 +28,7 @@ db.query(`
  ); 
 `);
  
-app.post('/clicks2', async (request, response) => {
+app.post('/clicks', async (request, response) => {
  const {
  whatGotClicked,
  pageX,
@@ -46,11 +46,11 @@ app.post('/clicks2', async (request, response) => {
  pageY,
  dataId,
  timestamp,
- Number(userId),
+ userId,
  ]
  );
  
- response.json({ clicked: 'event' });
+ response.sendStatus(200);
 });
 
 

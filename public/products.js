@@ -56,7 +56,6 @@ async function fetchSanityData(){
     body: JSON.stringify({ query: sanityQuery})
   })
   const { data } = await response.json()
-  console.log(data)
   sanityData = data
 }
 
@@ -67,7 +66,6 @@ async function initialPageLoad(){
   logo.src = sanityData.allSiteSettings[0].logo.asset.url
   logo.classList.remove('hidden')
   menuHeroText.textContent = sanityData.allSiteSettings[0].menuHeroText
-  console.log(sanityData.allSiteSettings[0].menuHeroText)
   menuHeroText.classList.remove('hidden')
   const fragments = sanityData.allCategory.map(renderCategory)
   categoriesSection.innerHTML = ''
@@ -76,7 +74,7 @@ async function initialPageLoad(){
 
 const renderCategory = category => {
   const html = `
-    <button class="category" data-category="${category.name}">
+    <button data-trackingid="${category.name}" class="category" data-category="${category.name}">
       <img 
         src="${category.primaryImage.asset.url}" 
         alt="${category.name}"
@@ -126,7 +124,6 @@ const unselectCategory = () => {
 
 
 function addToCart(event){
-  console.log('clicked')
   const theButtonThatGotClicked = event.currentTarget
   const priceId = theButtonThatGotClicked.closest('[data-priceid]').dataset.priceid
   if (cart[priceId]) {
@@ -207,7 +204,7 @@ renderProduct = product => {
     <div class = "product" data-priceid="${product.price_id}">
        <img src = "${product.image}" data-trackingid="${product.name}" alt="${product.name}"/>  
         <h2>${product.name}</h2>      
-      <button class = "add-to-cart">
+      <button data-trackingid="${product.name}" class = "add-to-cart">
         Add <span class = "currency">$${product.currency}</span> 
         ${(product.price_cents / 100).toFixed(2)}</button>
       <p>${product.nutrition} Cal</p>
@@ -231,11 +228,10 @@ if (!localStorage.getItem('userId')) {
   const pageX = Math.round(event.pageX);
   const pageY = Math.round(event.pageY);
   const dataId = event.path.find(item => item.dataset.trackingid !== undefined);
-  console.log(whatGotClicked);
   const trackingId = dataId.dataset.trackingid;
   const timestamp = Math.round(event.timeStamp);
   const userId = Number(localStorage.getItem('userId'));
-  fetch('/clicks2', {
+  fetch('/clicks', {
   method: 'POST',
   headers: {
   'Content-type': 'application/json',
@@ -259,7 +255,6 @@ cartButton.addEventListener('click', toggleCart)
 backtoMainMenu.addEventListener('click', unselectCategory)
 checkoutButton.addEventListener('click', checkout)
 
-console.log(handleClick)
 
 initialPageLoad()
 fetchProducts();
