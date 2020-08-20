@@ -224,7 +224,7 @@ if (!localStorage.getItem('userId')) {
   localStorage.setItem('userId', String(Math.random()));
  }
  const handleClick = async event => {
-  const whatGotClicked = event.target.outerHTML;
+  const whatGotClicked = event.target.innerText;
   const pageX = Math.round(event.pageX);
   const pageY = Math.round(event.pageY);
   const dataId = event.path.find(item => item.dataset.trackingid !== undefined);
