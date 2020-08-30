@@ -8,9 +8,18 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.3.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "stripe": "^8.89.0"
   },
   "scripts": {
-    "start": "node index.js"
-  }
+    "start": "parcel build src/index.html && node index.js",
+    "dev": "parcel watch src/index.html & node index.js"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.4"
+  },
+  "browserslist": [
+    ">= 2%"
+  ]
 }

@@ -10,7 +10,7 @@ const pg = require('pg');
 const app = express();
 const db = new pg.Pool({ connectionString: process.env.DATABASE_URL });
 
-app.use(express.static('public'));
+app.use(express.static('dist'));
 app.use(express.json());
 
 db.query(`
