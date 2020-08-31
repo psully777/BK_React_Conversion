@@ -1,0 +1,3 @@
+export const stripe = Stripe(
+  'pk_test_51HHEWgIzz2EUpZs19cpwY85PgSytrcZhvp2RpW5mP4ZTekDWWo4qRR7DHmVHNXaWeHGGvUICLR9Dy41NSKr6wg9V00x3Kvz9Vt'
+);

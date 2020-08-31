@@ -77,7 +77,7 @@ async function initialPageLoad() {
 
 const renderCategory = category => {
   const html = `
-    <button data-trackingid="${category.name}" class="category" data-category="${category.name}">
+    <button data-trackingid="${category.name}" class="category" data-category="${category.name}" >
       <img 
         src="${category.primaryImage.asset.url}" 
         alt="${category.name}"
